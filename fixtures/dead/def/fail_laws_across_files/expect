@@ -1,0 +1,7 @@
+# laws and the defs that fill them (here in another file) are entry points; what they mention is live
+exit 1
+findings 1
+contains def code:zero_only is never referenced
+lacks code:double
+lacks dbl_zero
+lacks open_claim

@@ -1,0 +1,8 @@
+# a chain of defs that only call each other is dead whole: the head is "never referenced", the rest "only dead defs use it".
+# At severity warning all three are reported (an error ends the run at the first) and the exit code stays 0.
+exit 0
+findings 3
+contains def top_dead is never referenced
+contains def middle is dead: only dead defs use it
+contains def leaf is dead: only dead defs use it
+lacks def main

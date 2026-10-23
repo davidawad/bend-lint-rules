@@ -1,0 +1,5 @@
+# no main, no law, no entries: nothing to measure from, so no def is called dead; one hint says why
+exit 0
+findings 1
+contains dead/def has nothing to measure from
+lacks is never referenced

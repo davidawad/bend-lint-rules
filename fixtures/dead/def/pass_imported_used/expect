@@ -1,0 +1,3 @@
+# a def reached through an imported file's own call chain is live
+exit 0
+findings 0

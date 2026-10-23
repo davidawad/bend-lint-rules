@@ -1,0 +1,5 @@
+# the program is the entry file and its imports: a def in an imported file that nothing reaches is dead
+exit 1
+findings 1
+contains def util:dead_in_util is never referenced
+lacks def util:used

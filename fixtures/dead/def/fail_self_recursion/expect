@@ -1,0 +1,4 @@
+# a def that only calls itself is not used
+exit 1
+findings 1
+contains def count is never referenced

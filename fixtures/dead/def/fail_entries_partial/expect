@@ -1,0 +1,5 @@
+exit 1
+findings 1
+contains def internal_dead is never referenced
+lacks def api_one
+lacks def api.add

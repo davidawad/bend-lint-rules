@@ -1,0 +1,3 @@
+# an exact name and a prefix* entry keep their defs live
+exit 0
+findings 0

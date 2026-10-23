@@ -1,0 +1,6 @@
+# without the entries option every def nothing calls is reported
+exit 0
+findings 3
+contains def api_one is never referenced
+contains def api.add is never referenced
+contains def internal_dead is never referenced
