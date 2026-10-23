@@ -1,5 +1,6 @@
 .worktrees/
 upstream/
 node_modules/
+target/
 scratch/
 *.tmp

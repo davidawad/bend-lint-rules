@@ -1,0 +1,13 @@
+[package]
+name = "bend-lint-rules-tools"
+version = "0.1.0"
+edition = "2021"
+description = "Setup, version pins, fixture runner and wrappers for the Bend lint rules in this repo"
+license = "MIT"
+publish = false
+
+[[bin]]
+name = "blr"
+path = "src/main.rs"
+
+[dependencies]

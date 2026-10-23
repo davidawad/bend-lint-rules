@@ -14,12 +14,13 @@ official linter that ships in the Bend repo: [`tools/bend-lint`](https://github.
 
 There is no `size/file_length` here: upstream already ships `style/file-length`
 (`tools/bend-lint/rules/file_length.bend`), so [`bend-lint.json`](bend-lint.json) turns that one on and
-[`scripts/lint.sh`](scripts/lint.sh) loads it with the rest.
+`blr lint` ([`src/lint.rs`](src/lint.rs)) loads it with the rest.
 
 ## Install
 
 You need [Bun](https://bun.sh) 1.2 or newer, [Bend](https://github.com/bendlang/bend) 2.0.38 on `PATH`
-(`bend version` must print the line in [`.bend-version`](.bend-version)), `git`, and
+(`bend version` must print the line in [`.bend-version`](.bend-version)), `git`, a Rust toolchain (the
+setup, fixture runner and lint wrapper are one small std-only crate, `blr`), and
 [`just`](https://github.com/casey/just) for the recipes. No clang is needed: Bend rules run on Bend's
 JavaScript runtime.
 
@@ -31,15 +32,15 @@ just setup     # clones bendlang/bend at the pinned tag into upstream/bend (giti
 
 `bend-lint` is not on npm: it lives in the Bend repo and is run from a checkout of it. `just setup` makes
 that checkout. The pin is [`upstream.env`](upstream.env) (tag `v2.0.38`, commit
-`0a57ca0d21de94a3724d8be21afb0eb89f88b4d8`); `scripts/setup-upstream.sh` fails if the tag has moved.
+`0a57ca0d21de94a3724d8be21afb0eb89f88b4d8`); `blr setup` ([`src/setup.rs`](src/setup.rs)) fails if the tag has moved.
 Every rule imports the rule API (`src/bend/lint.bend`) from that checkout, by a relative path, which is
 why the checkout sits inside this repo.
 
 ## Use
 
 ```sh
-scripts/lint.sh path/to/main.bend            # all rules of this pack, plus style/file-length
-scripts/lint.sh path/to/main.bend --json     # any bend-lint flag
+cargo run --quiet -- lint path/to/main.bend         # all rules of this pack, plus style/file-length
+cargo run --quiet -- lint path/to/main.bend --json  # any bend-lint flag
 ```
 
 Or call bend-lint yourself and pick rules with `--rules`:
@@ -138,8 +139,8 @@ just check-versions          # bend and bun versions
 just ci                      # check-versions, setup, test, self
 ```
 
-`tests/run.sh` runs bend-lint on each case in `fixtures/<group>/<rule>/<case>/` and checks its exit code
-and output against the case's `expect` file (format at the top of `tests/run.sh`). Each rule has passing
+`blr test` ([`src/fixtures.rs`](src/fixtures.rs)) runs bend-lint on each case in `fixtures/<group>/<rule>/<case>/` and checks its exit code
+and output against the case's `expect` file (format at the top of `src/fixtures.rs`). Each rule has passing
 and failing cases: boundaries (`max` met exactly), default limits, imports, laws, templates and options.
 
 `just ci` fails when `bend version` differs from `.bend-version`. Bend has changed between 2.0.x
