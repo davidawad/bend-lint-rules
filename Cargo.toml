@@ -3,7 +3,7 @@ name = "bend-lint-rules-tools"
 version = "0.1.0"
 edition = "2021"
 description = "Setup, version pins, fixture runner and wrappers for the Bend lint rules in this repo"
-license = "MIT"
+license = "GPL-3.0-or-later"
 publish = false
 
 [[bin]]

@@ -168,5 +168,5 @@ reworked before a publish.
 
 ## License
 
-MIT, see [LICENSE](LICENSE). `bend-lint` and Bend are Apache-2.0 and are not copied here: `upstream/` is a
+GPL-3.0-or-later, see [LICENSE](LICENSE). `bend-lint` and Bend are Apache-2.0 and are not copied here: `upstream/` is a
 checkout made by `just setup`.
