@@ -1,0 +1,5 @@
+.worktrees/
+upstream/
+node_modules/
+scratch/
+*.tmp
