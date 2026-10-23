@@ -1,0 +1,4 @@
+exit 1
+findings 1
+contains def target is used by 4 different defs; the limit is 3
+lacks def caller

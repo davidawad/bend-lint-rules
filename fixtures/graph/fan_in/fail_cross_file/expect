@@ -1,0 +1,4 @@
+# callers are counted across the entry file and its imports
+exit 1
+findings 1
+contains def util:shared is used by 3 different defs; the limit is 2

@@ -1,0 +1,3 @@
+# util:shared has three callers but lives in an imported file: reported only with `imports`
+exit 0
+findings 0

@@ -1,0 +1,4 @@
+# no max given: the limit is 10
+exit 1
+findings 1
+contains def hub uses 11 different defs; the limit is 10

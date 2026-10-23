@@ -1,0 +1,1 @@
+{ "rules": { "graph/fan_in": { "severity": "error", "max": 2 } } }

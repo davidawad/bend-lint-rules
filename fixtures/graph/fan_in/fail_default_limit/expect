@@ -1,0 +1,4 @@
+# no max given: the limit is 20
+exit 1
+findings 1
+contains def target is used by 21 different defs; the limit is 20

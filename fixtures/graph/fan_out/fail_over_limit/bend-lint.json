@@ -1,0 +1,1 @@
+{ "rules": { "graph/fan_out": { "severity": "error", "max": 3 } } }

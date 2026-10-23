@@ -1,0 +1,3 @@
+exit 1
+findings 1
+contains def hub uses 4 different defs; the limit is 3
