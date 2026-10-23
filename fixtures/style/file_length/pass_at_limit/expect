@@ -1,0 +1,3 @@
+# the upstream rule, enabled in this pack's bend-lint.json
+exit 0
+findings 0

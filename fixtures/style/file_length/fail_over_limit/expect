@@ -1,0 +1,3 @@
+exit 1
+findings 1
+contains Keep the file to 20 lines; it has 21.

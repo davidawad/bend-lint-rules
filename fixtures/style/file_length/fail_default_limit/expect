@@ -1,0 +1,4 @@
+# no maxLines given: 500
+exit 1
+findings 1
+contains Keep the file to 500 lines; it has 501.
