@@ -1,0 +1,4 @@
+exit 1
+findings 1
+contains def deep has cognitive complexity 6; the limit is 5
+lacks def shallow

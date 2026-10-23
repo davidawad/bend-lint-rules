@@ -1,0 +1,3 @@
+# only the linted file's defs are measured; lint util.bend itself to measure it
+exit 0
+findings 0

@@ -1,0 +1,5 @@
+# no max given: the limit is 15
+exit 1
+findings 1
+contains def six has cognitive complexity 21; the limit is 15
+lacks def five

@@ -1,0 +1,3 @@
+exit 1
+findings 1
+contains def in_default has cognitive complexity 3; the limit is 2

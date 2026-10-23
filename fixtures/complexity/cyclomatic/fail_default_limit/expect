@@ -1,0 +1,5 @@
+# no max given: the limit is 10
+exit 1
+findings 1
+contains def eleven has cyclomatic complexity 11; the limit is 10
+lacks def ten
