@@ -1,0 +1,27 @@
+$ blr lint main.bend
+
+Warning [dead/def]:
+- message  : def leaf is dead: only dead defs use it.
+Location:
+2 | 
+3>| def leaf(x: U32) -> U32:
+  |             ^^^
+4 |   x
+
+Warning [dead/def]:
+- message  : def middle is dead: only dead defs use it.
+Location:
+5 | 
+6>| def middle(x: U32) -> U32:
+  |               ^^^
+7 |   leaf(x)
+
+Warning [dead/def]:
+- message  : def top_dead is never referenced.
+Location:
+ 8 | 
+ 9>| def top_dead(x: U32) -> U32:
+   |                 ^^^
+10 |   middle(x)
+
+bend-lint: 3 finding(s)
