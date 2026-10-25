@@ -18,7 +18,7 @@
 # says so.
 # Options: entries (default ""), imports (default false).
 import Base
-import ../../upstream/bend/tools/bend-lint/src/bend/lint.bend as Lint
+import ../vendor/lint.bend as Lint
 import ../common.bend as Common
 
 def id() -> String:

@@ -10,7 +10,7 @@
 # A match on several values at once (`match a b:`) is checked as nested tests and counts as such.
 # Options: max (default 10).
 import Base
-import ../../upstream/bend/tools/bend-lint/src/bend/lint.bend as Lint
+import ../vendor/lint.bend as Lint
 import ../common.bend as Common
 
 def id() -> String:

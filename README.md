@@ -36,8 +36,7 @@ just setup     # clones bendlang/bend at the pinned tag into upstream/bend (giti
 
 `bend-lint` is not on npm: it lives in the Bend repo and is run from a checkout of it. `just setup` makes
 that checkout. The pin is [`upstream.env`](upstream.env) (tag `v2.0.38`, commit
-`0a57ca0d21de94a3724d8be21afb0eb89f88b4d8`); `blr setup` ([`src/setup.rs`](src/setup.rs)) fails if the tag has moved.
-Every rule imports the rule API (`src/bend/lint.bend`) from that checkout, by a relative path, which is
+Every rule imports the rule API from a vendored copy in `rules/vendor/`; the checkout is what runs bend-lint itself.
 why the checkout sits inside this repo.
 
 ## Use
@@ -163,17 +162,21 @@ the tests on it and then editing `.bend-version` and `upstream.env` together.
   are called by the host, so linting a rule file with `dead/def` needs `"entries": "id, facts"`
   (see `rules/bend-lint.json`).
 
-## What is not published
+## BendHub
 
-Nothing is on BendHub, and no pull request exists upstream. Publishing a rule to BendHub is public and
-permanent (`bend rules/dead/def.bend --publish name@version`, after `bend login`). These rules import the
-rule API through a relative path into the `upstream/bend` checkout, so they would need that import
-reworked before a publish.
+Published on BendHub as `bend-lint-pack@0.1.1.0` (hash `0x7294c9a1db4be6346e88202032984e02`):
+`import bend-lint-pack@0.1.1.0/all.bend as All`
+([hub page](https://hub.bend-lang.com/0x7294c9a1db4be6346e88202032984e02)). The BendHub name differs from
+this repo's name because `bend-lint-rules` is already owned by another BendHub account.
+The package entry is `rules/all.bend`, which imports all five rules. It carries a vendored copy of
+bend-lint's rule API (`rules/vendor/`), so the package does not need the `upstream/` checkout.
+There is no pull request upstream.
 
 ## License
 
-GPL-3.0-or-later, see [LICENSE](LICENSE). `bend-lint` and Bend are Apache-2.0 and are not copied here: `upstream/` is a
-checkout made by `just setup`.
+GPL-3.0-or-later, see [LICENSE](LICENSE). The rule API in `rules/vendor/` (`lint.bend`, `effects.js`) is copied
+unmodified from Bend v2.0.38 and stays Apache-2.0 (see `rules/vendor/LICENSE-APACHE-2.0`), which is compatible with
+GPL-3.0. The rest of Bend and `bend-lint` is not copied: `upstream/` is a checkout made by `just setup`, used to run the tests.
 
 ## Showcase
 

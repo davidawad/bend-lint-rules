@@ -22,7 +22,9 @@ fn sorted(dir: &Path, keep: impl Fn(&Path) -> bool) -> io::Result<Vec<PathBuf>> 
 
 /// The rule files of this pack in order: rules/<group>/<name>.bend.
 pub fn rule_files(root: &Path) -> io::Result<Vec<PathBuf>> {
-    let groups = sorted(&root.join("rules"), |p| p.is_dir())?;
+    let groups = sorted(&root.join("rules"), |p| {
+        p.is_dir() && p.file_name().is_some_and(|n| n != "vendor")
+    })?;
     let per_group = groups
         .iter()
         .map(|group| sorted(group, |p| p.extension().is_some_and(|e| e == "bend")))

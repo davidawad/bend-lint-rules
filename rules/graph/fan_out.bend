@@ -7,7 +7,7 @@
 # the program). Lint the entry file so that defs in imported files are seen.
 # Options: max (default 10), imports (default false).
 import Base
-import ../../upstream/bend/tools/bend-lint/src/bend/lint.bend as Lint
+import ../vendor/lint.bend as Lint
 import ../common.bend as Common
 
 def id() -> String:

@@ -1,6 +1,6 @@
 # Helpers shared by the rules in this repo. A rule file imports this as ../common.bend.
 import Base
-import ../upstream/bend/tools/bend-lint/src/bend/lint.bend as Lint
+import ./vendor/lint.bend as Lint
 
 # Owners of facts
 # ===============
