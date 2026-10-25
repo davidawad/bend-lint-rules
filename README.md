@@ -36,8 +36,8 @@ just setup     # clones bendlang/bend at the pinned tag into upstream/bend (giti
 
 `bend-lint` is not on npm: it lives in the Bend repo and is run from a checkout of it. `just setup` makes
 that checkout. The pin is [`upstream.env`](upstream.env) (tag `v2.0.38`, commit
+`0a57ca0d21de94a3724d8be21afb0eb89f88b4d8`); `blr setup` ([`src/setup.rs`](src/setup.rs)) fails if the tag has moved.
 Every rule imports the rule API from a vendored copy in `rules/vendor/`; the checkout is what runs bend-lint itself.
-why the checkout sits inside this repo.
 
 ## Use
 
